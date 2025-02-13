@@ -1,6 +1,6 @@
-const Birthdate = new Date('February 12,2025 00:00:00').getTime();
+const Birthdate = new Date('February 12, 2025 00:00:00').getTime();
 
-function updateCountdown(){
+function updateCountdown() {
     const today = new Date().getTime();
     const timeLeft = Birthdate - today;
 
@@ -13,11 +13,18 @@ function updateCountdown(){
     document.getElementById("hours").innerHTML = hours + " hrs";
     document.getElementById("minutes").innerHTML = minutes + " mins";
     document.getElementById("seconds").innerHTML = seconds + " secs";
-    if(timeLeft<0){
+
+    if (timeLeft < 0) {
         clearInterval(interval);
         document.getElementById("countdown").innerHTML = "🎉 It's My Love's BIRTHDAY!!! 🎉";
         document.getElementById("message").innerHTML = "Time to celebrate! 🎂🎈";
+        celebrate();
     }
+}
+
+function celebrate() {
+    const audio = new Audio('path_to_celebration_sound.mp3'); 
+    audio.play();
 }
 
 const interval = setInterval(updateCountdown, 1000);
